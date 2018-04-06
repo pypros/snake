@@ -40,7 +40,7 @@ class SnakeTestCase(unittest.TestCase):
         ]
         head = (1, 5, 'x')
 
-        direction_right = (1,5,'x')
+        direction_right = (1, 5, 'x')
 
         self.snake.move(direction_right)
 
@@ -67,7 +67,7 @@ class SnakeTestCase(unittest.TestCase):
         ]
         head = (2, 4, 'x')
 
-        direction_down = (2,4,'x')
+        direction_down = (2, 4, 'x')
 
         self.snake.move(direction_down)
 
@@ -92,9 +92,8 @@ class SnakeTestCase(unittest.TestCase):
             (1, 3, 'x'),
             (1, 4, 'x')
         ]
-        head = (0,4,'x')
-
-        direction_up = (0,4,'x')
+        head = (0, 4, 'x')
+        direction_up = (0, 4, 'x')
 
         self.snake.move(direction_up)
 
@@ -121,8 +120,8 @@ class SnakeTestCase(unittest.TestCase):
         ]
         head = (2, 3, 'x')
 
-        direction_down = (2,4,'x')
-        direction_left = (2,3,'x')
+        direction_down = (2, 4, 'x')
+        direction_left = (2, 3, 'x')
 
         self.snake.move(direction_down)
         self.snake.move(direction_left)
