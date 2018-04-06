@@ -2,12 +2,12 @@
 class Snake:
 
     def __init__(self):
-        self.head = (0, 3, '0')
+        self.tail = (1, 1, 'x')
         self.body = [
-            (0, 2, '0'),
-            (0, 1, '0')
+            (1, 2, 'x'),
+            (1, 3, 'x')
         ]
-        self.tail = (0, 0, '0')
+        self.head = (1, 4, 'x')
 
     def move(self, next_spot):
         self.body.append(self.head)
