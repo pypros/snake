@@ -1,0 +1,9 @@
+language: python
+python:
+  - "3.5"
+# command to install dependencies
+install:
+    - pip install -UI pip setuptools wheels
+# command to run tests
+script:
+  - python3 -m unittest -v tests/test_* # or py.test for Python versions 3.5 and below
