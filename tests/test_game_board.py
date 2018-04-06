@@ -63,3 +63,43 @@ class GameBoardTestCase(unittest.TestCase):
                 self.board_game.board_game[first_raw][y],
                 representation_after_draw
             )
+
+    def test_move_pixel(self):
+        x = 1
+        y = 1
+        representation_before = '0'
+        representation_after = 'x'
+        pixel = (x, y, representation_after)
+
+        for y in range(1,3):
+            self.assertEqual(
+                self.board_game.board_game[x][y],
+                representation_before
+            )
+
+        self.board_game.draw_pixel(pixel)
+
+        self.assertEqual(
+            self.board_game.board_game[x][1],
+            representation_after
+        )
+
+        self.assertEqual(
+            self.board_game.board_game[x][2],
+            representation_before
+        )
+
+        self.board_game.move_pixel(
+            (1,1, representation_after),
+            (1,2, representation_before)
+        )
+
+        self.assertEqual(
+            self.board_game.board_game[x][1],
+            representation_before
+        )
+
+        self.assertEqual(
+            self.board_game.board_game[x][2],
+            representation_after
+        )
