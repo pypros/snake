@@ -10,7 +10,7 @@ class GameBoardTestCase(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_size(self):
+    def test_game_board_size(self):
         size_board = 0
         for raw in self.board_game.board_game:
             size_board += len(raw)
@@ -20,7 +20,7 @@ class GameBoardTestCase(unittest.TestCase):
             size_board
         )
 
-    def test_draw_pixel(self):
+    def test_game_board_draw_pixel(self):
         x = 0
         y = 0
         representation_before_draw = '0'
@@ -39,7 +39,7 @@ class GameBoardTestCase(unittest.TestCase):
             representation_after_draw
         )
 
-    def test_draw_pixels(self):
+    def test_game_board_draw_pixels(self):
         first_raw = 0
         representation_before_draw = '0'
         representation_after_draw = 'x'
@@ -64,7 +64,7 @@ class GameBoardTestCase(unittest.TestCase):
                 representation_after_draw
             )
 
-    def test_move_pixel(self):
+    def ttest_game_board_move_pixel(self):
         x = 1
         y = 1
         representation_before = '0'
