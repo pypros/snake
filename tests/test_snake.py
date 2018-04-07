@@ -168,7 +168,6 @@ class SnakeTestCase(TestCase):
             self.snake.head
         )
 
-
     def test_snake_map_key_on_direction_down(self):
         tail = (1, 2)
         body = [
@@ -195,7 +194,6 @@ class SnakeTestCase(TestCase):
             self.snake.head
         )
 
-
     def test_snake_map_key_on_direction_right(self):
         tail = (1, 2)
         body = [
@@ -221,7 +219,6 @@ class SnakeTestCase(TestCase):
             head,
             self.snake.head
         )
-
 
     def test_snake_map_key_on_direction_left(self):
         tail = (1, 3)
@@ -265,7 +262,6 @@ class SnakeTestCase(TestCase):
             tail,
             next(it)
         )
-
 
     def test_snake_magic_method_len(self):
         init_length_snake = 4
