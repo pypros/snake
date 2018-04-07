@@ -1,8 +1,9 @@
-import unittest
+from unittest import TestCase
+from unittest.mock import Mock
 from game_engine.snake import Snake
 
 
-class SnakeTestCase(unittest.TestCase):
+class SnakeTestCase(TestCase):
     def setUp(self):
         self.snake = Snake()
 
@@ -139,4 +140,32 @@ class SnakeTestCase(unittest.TestCase):
         self.assertEqual(
             tail,
             self.snake.tail
+        )
+
+    def test_snake_map_key_on_direction_up(self):
+        self.snake.keyboard._Keyboard__get_key_value = Mock(return_value='\x1b[A')
+        self.assertEqual(
+            'up',
+            self.snake.direction()
+        )
+
+    def test_snake_map_key_on_direction_down(self):
+        self.snake.keyboard._Keyboard__get_key_value = Mock(return_value='\x1b[B')
+        self.assertEqual(
+            'down',
+            self.snake.direction()
+        )
+
+    def test_snake_map_key_on_direction_right(self):
+        self.snake.keyboard._Keyboard__get_key_value = Mock(return_value='\x1b[C')
+        self.assertEqual(
+            'right',
+            self.snake.direction()
+        )
+
+    def test_snake_map_key_on_direction_left(self):
+        self.snake.keyboard._Keyboard__get_key_value = Mock(return_value='\x1b[D')
+        self.assertEqual(
+            'left',
+            self.snake.direction()
         )
