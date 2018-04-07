@@ -1,5 +1,6 @@
 import sys
 import tty
+import termios
 
 
 class Keyboard:
@@ -9,13 +10,14 @@ class Keyboard:
         self.key_value = None
 
     def __get_key_value(self):
-        # STDIN_FILENO - Standard input, stdin (value 0)
         fd = sys.stdin.fileno()
-        # Set cbreak end of line
-        tty.setcbreak(fd)
-        key_value = sys.stdin.read(self.data_buffer_length)
+        old_settings = termios.tcgetattr(fd)
+        try:
+            tty.setraw(fd)
+            key_value = sys.stdin.read(self.data_buffer_length)
+        finally:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
         return key_value
-
 
     def get_key_value(self):
         while True:
@@ -29,8 +31,7 @@ class Keyboard:
 def main():
     keyboard = Keyboard()
     for i in range(4):
-        keyboard.get_key_value()
-        print(keyboard.key_value())
+        print(keyboard.get_key_value())
 
 if __name__=='__main__':
         main()
