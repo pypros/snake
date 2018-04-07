@@ -258,9 +258,6 @@ class SnakeTestCase(TestCase):
             str(self.snake)
         )
 
-    def test_snake_magic_method_repr(self):
-        pass
-
     def test_snake_magic_method_iter(self):
         tail = (1, 1)
         it = iter(self.snake)

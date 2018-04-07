@@ -12,10 +12,6 @@ class Snake:
         self.head = (1, 4)
         self.keyboard = Keyboard()
 
-
-    def __repr__(self):
-        return [self.tail] + self.body + [self.head]
-
     def __str__(self):
         return str([self.tail] + self.body + [self.head])
 
