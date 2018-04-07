@@ -251,3 +251,28 @@ class SnakeTestCase(TestCase):
             self.snake.head
         )
 
+    def test_snake_magic_method_str(self):
+        snake_string_representation = "[(1, 1), (1, 2), (1, 3), (1, 4)]"
+        self.assertEqual(
+            snake_string_representation,
+            str(self.snake)
+        )
+
+    def test_snake_magic_method_repr(self):
+        pass
+
+    def test_snake_magic_method_iter(self):
+        tail = (1, 1)
+        it = iter(self.snake)
+        self.assertEqual(
+            tail,
+            next(it)
+        )
+
+
+    def test_snake_magic_method_len(self):
+        init_length_snake = 4
+        self.assertEqual(
+            init_length_snake,
+            len(self.snake)
+        )
