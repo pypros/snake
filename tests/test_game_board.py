@@ -71,7 +71,7 @@ class GameBoardTestCase(unittest.TestCase):
         representation_after = 'x'
         pixel = (x, y, representation_after)
 
-        for y in range(1,3):
+        for y in range(1, 3):
             self.assertEqual(
                 self.board_game.board_game[x][y],
                 representation_before
@@ -90,8 +90,8 @@ class GameBoardTestCase(unittest.TestCase):
         )
 
         self.board_game.move_pixel(
-            (1,1, representation_after),
-            (1,2, representation_before)
+            (1, 1, representation_after),
+            (1, 2, representation_before)
         )
 
         self.assertEqual(
