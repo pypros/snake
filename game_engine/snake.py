@@ -17,10 +17,7 @@ class Snake:
         self.head = next_spot
         self.tail = self.body.pop(0)
 
-    def snake_move_control(self, direction):
-        self.head = (1, 4)
-
-    def direction(self):
+    def change_direction(self):
         key_value = self.keyboard.get_key_value()
         direct = {
             b"\x1b[A": "up",

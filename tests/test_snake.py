@@ -146,26 +146,26 @@ class SnakeTestCase(TestCase):
         self.snake.keyboard._Keyboard__get_key_value = Mock(return_value='\x1b[A')
         self.assertEqual(
             'up',
-            self.snake.direction()
+            self.snake.change_direction()
         )
 
     def test_snake_map_key_on_direction_down(self):
         self.snake.keyboard._Keyboard__get_key_value = Mock(return_value='\x1b[B')
         self.assertEqual(
             'down',
-            self.snake.direction()
+            self.snake.change_direction()
         )
 
     def test_snake_map_key_on_direction_right(self):
         self.snake.keyboard._Keyboard__get_key_value = Mock(return_value='\x1b[C')
         self.assertEqual(
             'right',
-            self.snake.direction()
+            self.snake.change_direction()
         )
 
     def test_snake_map_key_on_direction_left(self):
         self.snake.keyboard._Keyboard__get_key_value = Mock(return_value='\x1b[D')
         self.assertEqual(
             'left',
-            self.snake.direction()
+            self.snake.change_direction()
         )
