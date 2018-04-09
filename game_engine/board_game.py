@@ -16,6 +16,8 @@ class BoardGame:
         first_row = slice(1)
         len_row = len(*self.board_game[first_row])
         print(['-'] * (len_row + 2))
+        print('[\'-\',' + str(' \'-\',' * (5)) + 'Score: {}-]'.format(0))
+        print(['-'] * (len_row + 2))
 
         for raw in self.board_game:
             print(['-'] + raw + ['-'])
