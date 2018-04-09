@@ -29,7 +29,6 @@ class Snake:
         self.head = next_spot
         self.tail = self.body.pop(0)
 
-
     def prevent_backward_movement(self, next_spot):
         if not next_spot in [self.tail] + self.body + [self.head]:
             return True
@@ -72,5 +71,6 @@ class Snake:
         elif 'left' == direction:
             y -= 1
 
-        if self.check_borders(x, y) and self.prevent_backward_movement((x, y)):
-            self.move((x, y))
+        if self.check_borders(x, y):
+            if self.prevent_backward_movement((x, y)):
+                self.move((x, y))
