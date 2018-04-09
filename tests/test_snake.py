@@ -142,6 +142,14 @@ class SnakeTestCase(TestCase):
             self.snake.tail
         )
 
+    def test_snake_prevent_backward_movement_false(self):
+        next_spot = (1, 4)
+        self.assertFalse(self.snake.prevent_backward_movement(next_spot))
+
+    def test_snake_prevent_backward_movement_true(self):
+        next_spot = (1, 5)
+        self.assertTrue(self.snake.prevent_backward_movement(next_spot))
+
     def test_snake_check_border_up(self):
         tail = (1, 2)
         body = [
