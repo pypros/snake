@@ -64,7 +64,7 @@ class GameBoardTestCase(unittest.TestCase):
                 representation_after_draw
             )
 
-    def ttest_game_board_move_pixel(self):
+    def test_game_board_move_pixel(self):
         x = 1
         y = 1
         representation_before = '0'
