@@ -142,6 +142,127 @@ class SnakeTestCase(TestCase):
             self.snake.tail
         )
 
+    def test_snake_check_border_up(self):
+        tail = (1, 2)
+        body = [
+            (1, 3),
+            (1, 4)
+        ]
+        head = (0, 4)
+
+        self.snake.keyboard._Keyboard__get_key_value = Mock(side_effect=['\x1b[A','\x1b[A'])
+        self.snake.change_direction()
+        self.snake.change_direction()
+
+        self.assertEqual(
+            tail,
+            self.snake.tail
+        )
+
+        self.assertEqual(
+            body,
+            self.snake.body
+        )
+
+        self.assertEqual(
+            head,
+            self.snake.head
+        )
+    def test_snake_check_border_down(self):
+        tail = (2, 4)
+        body = [
+            (3, 4),
+            (4, 4)
+        ]
+        head = (5, 4)
+
+        self.snake.keyboard._Keyboard__get_key_value = Mock(side_effect=['\x1b[B','\x1b[B', '\x1b[B','\x1b[B'])
+
+        self.snake.change_direction()
+        self.snake.change_direction()
+        self.snake.change_direction()
+        self.snake.change_direction()
+
+        self.assertEqual(
+            tail,
+            self.snake.tail
+        )
+
+        self.assertEqual(
+            body,
+            self.snake.body
+        )
+
+        self.assertEqual(
+            head,
+            self.snake.head
+        )
+
+    def test_snake_check_border_right(self):
+        tail = (1, 2)
+        body = [
+            (1, 3),
+            (1, 4)
+        ]
+        head = (1, 5)
+
+        self.snake.keyboard._Keyboard__get_key_value = Mock(side_effect=['\x1b[C','\x1b[C'])
+        self.snake.change_direction()
+        self.snake.change_direction()
+
+        self.assertEqual(
+            tail,
+            self.snake.tail
+        )
+
+        self.assertEqual(
+            body,
+            self.snake.body
+        )
+
+        self.assertEqual(
+            head,
+            self.snake.head
+        )
+
+    def test_snake_check_border_left(self):
+        tail = (2, 3)
+        body = [
+            (2, 2),
+            (2, 1)
+        ]
+        head = (2, 0)
+
+        self.snake.keyboard._Keyboard__get_key_value = Mock(side_effect=[
+            '\x1b[B',
+            '\x1b[D',
+            '\x1b[D',
+            '\x1b[D',
+            '\x1b[D',
+            '\x1b[D'
+        ])
+        self.snake.change_direction()
+        self.snake.change_direction()
+        self.snake.change_direction()
+        self.snake.change_direction()
+        self.snake.change_direction()
+        self.snake.change_direction()
+
+        self.assertEqual(
+            tail,
+            self.snake.tail
+        )
+
+        self.assertEqual(
+            body,
+            self.snake.body
+        )
+
+        self.assertEqual(
+            head,
+            self.snake.head
+        )
+
     def test_snake_map_key_value_on_direction(self):
         direction = {
             b"\x1b[A": 'up',

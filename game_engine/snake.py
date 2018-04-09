@@ -39,10 +39,22 @@ class Snake:
         }
         return direction.get(key_value, 'Wrong key')
 
+    def check_borders(self, x, y):
+        x_in_border = False
+        y_in_border = False
+
+        if (x >= 0 and x <= (self.board_game.size_raw-1)):
+            x_in_border = True
+
+        if (y>=0 and y <= (self.board_game.size_raw-1)):
+            y_in_border = True
+
+        return x_in_border and y_in_border
+
     def change_direction(self):
         key_value = self.keyboard.get_key_value()
         direction = self.map_key_value_on_direction(key_value)
-        x, y = self.head
+        x, y = tuple(self.head)
 
         if 'up' == direction:
             x -= 1
@@ -53,4 +65,5 @@ class Snake:
         elif 'left' == direction:
             y -= 1
 
-        self.move((x, y))
+        if self.check_borders(x, y):
+            self.move((x, y))
