@@ -142,7 +142,22 @@ class SnakeTestCase(TestCase):
             self.snake.tail
         )
 
-    def test_snake_map_key_on_direction_up(self):
+    def test_snake_map_key_value_on_direction(self):
+        direction = {
+            b"\x1b[A": 'up',
+            b"\x1b[B": 'down',
+            b"\x1b[C": 'right',
+            b"\x1b[D": 'left',
+            b'\x03\x03\x03': 'exit'
+        }
+
+        for key in direction:
+            self.assertEqual(
+                direction[key],
+                self.snake.map_key_value_on_direction(key)
+            )
+
+    def test_snake_map_key_on_direction_and_move_up(self):
         tail = (1, 2)
         body = [
             (1, 3),
