@@ -4,8 +4,13 @@ class BoardGame:
 
         pixel represenation (x, y, char)
     """
-    def __init__(self, size_raw, size_columne):
-        self.board_game = [["0" for raw_number in range(size_raw)] for columne_number in range(size_columne)]
+    def __init__(self, size_raw, size_column):
+        self.size_raw = size_raw
+        self.size_column = size_column
+        self.board_game = [["0" for raw_number in range(self.size_raw)] for columne_number in range(self.size_column)]
+
+    def clean(self):
+        self.board_game = [["0" for raw_number in range(self.size_raw)] for columne_number in range(self.size_column)]
 
     def print_game(self):
         first_row = slice(1)
