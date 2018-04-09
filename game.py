@@ -8,12 +8,11 @@ SIZE_COLUMNE = 6
 snake = Snake()
 
 while True:
-    board_game = BoardGame(SIZE_RAW, SIZE_COLUMNE)
+    snake.board_game.clean()
     for x, y in snake:
-        board_game.draw_pixel((x, y, 'x'))
+        snake.board_game.draw_pixel((x, y, 'x'))
     os.system('clear')
-    board_game.print_game()
+    snake.board_game.print_game()
     snake.change_direction()
     if snake.keyboard.key_value == b'\x03\x03\x03':
         sys.exit()
-
