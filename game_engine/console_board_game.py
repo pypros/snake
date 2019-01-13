@@ -1,4 +1,4 @@
-class BoardGame:
+class BoardGameConsole:
     """
         BoardGame
 

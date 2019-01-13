@@ -1,5 +1,5 @@
 from game_engine.keyboard_driver import Keyboard
-from game_engine.board_game import BoardGame
+from game_engine.console_board_game import BoardGameConsole
 from random import randint
 
 class Snake:
@@ -9,7 +9,7 @@ class Snake:
         self.body = [(1, 2), (1, 3)]
         self.head = (1, 4)
         self.keyboard = Keyboard()
-        self.board_game = BoardGame(size_raw, size_columne)
+        self.board_game = BoardGameConsole(size_raw, size_columne)
         self.food = (0, 0)
 
     def __str__(self):

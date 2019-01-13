@@ -1,4 +1,4 @@
-from game_engine.board_game import BoardGame
+from game_engine.console_board_game import BoardGameConsole
 from game_engine.snake import Snake
 import sys
 import os
